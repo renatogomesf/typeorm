@@ -1,7 +1,8 @@
 import { Router } from "express";
+import subjectRouter from "./Subject.routes";
 
-const routes = Router()
+const router = Router()
 
-routes.use()
+router.use(subjectRouter)
 
-export default routes
+export default router
