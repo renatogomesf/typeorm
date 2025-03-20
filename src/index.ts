@@ -1,20 +1,17 @@
-import { AppDataSource } from "./data-source-config"
-import { User } from "./entity/User"
+import express, { Request, Response } from "express";
+import { AppDataSource } from "./data-source";
+import routes from "./routes";
 
-AppDataSource.initialize().then(async () => {
+AppDataSource.initialize().then(() => {
+  const app = express();
 
-    console.log("Inserting a new user into the database...")
-    const user = new User()
-    user.firstName = "Timber"
-    user.lastName = "Saw"
-    user.age = 25
-    await AppDataSource.manager.save(user)
-    console.log("Saved a new user with id: " + user.id)
+  app.use(express.json());
 
-    console.log("Loading users from the database...")
-    const users = await AppDataSource.manager.find(User)
-    console.log("Loaded users: ", users)
+  app.use(routes);
 
-    console.log("Here you can setup and run express / fastify / any other framework.")
-
-}).catch(error => console.log(error))
+  return app.listen(Number(process.env.PORT), String(process.env.HOST), () => {
+    console.log(
+      `Servidor rodando em http://${process.env.HOST}:${process.env.PORT}`
+    );
+  });
+});

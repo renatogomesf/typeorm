@@ -3,15 +3,26 @@
       "lib": [
          "es5",
          "es6",
-         "DOM"
+         "ES2020"
       ],
-      "target": "ES5",
+      "target": "ES2020",
       "module": "CommonJS",
       "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "allowJs": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "noImplicitAny": true,
       "outDir": "./build",
-      "rootDir": "./src",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "sourceMap": true
+      "sourceMap": true,
+      "strictPropertyInitialization": false
+   },
+   "include": ["src/**/*"], // arquivos que o ts vai dar pitaco
+   "exclude": ["node_modules", "dist"], // arquivos que o ts vai fingir que não viu.
+   "ts-node": {
+      "files": true
    }
 }
