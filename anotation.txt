@@ -1,0 +1,15 @@
+
+services: 
+    quando houver regra de negócio/logicas que ficaria na "route", encapsual aqui no service. normalmente com um úncio método/serviço que é o "execute".
+
+
+repository:
+    conversa com a fonte de dados. é consumido pela rota e as vezes o "services"
+
+
+model:
+    representação das tabelas e relações do banco de dados. estrutura. conversa com o banco de dados.
+
+
+migrations: 
+    tem o papel principal de versionar o banco de dados e garantir que todos que tenham acesso ao banco de dados tenham seus bancos de dados atualizados com todas as colunas e tabelas.

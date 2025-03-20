@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "./entity/User";
+import { CreateClass1742476229245 } from "./migration/1742476229245-createClass";
 
 export const AppDataSource = new DataSource({
   type: "mysql",
@@ -9,9 +9,9 @@ export const AppDataSource = new DataSource({
   username: "root",
   password: "123456789",
   database: "typeorm",
-  synchronize: true,
+  synchronize: true, // faz que as models gerem automaticamente as tabelas do banco de dados
   logging: true,
-  entities: [User],
+  entities: [],
   subscribers: [],
-  migrations: [],
+  migrations: [CreateClass1742476229245],
 });
