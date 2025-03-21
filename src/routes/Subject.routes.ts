@@ -1,9 +1,9 @@
 import { Router } from "express";
 
+import SubjectController from "../controllers/SubjectController";
+
 const subjectRouter = Router();
 
-subjectRouter.get("/", (req, res) => {
-  res.status(200).send({ message: "tudo ok" });
-});
+subjectRouter.post("/subject", SubjectController.create);
 
 export default subjectRouter;
