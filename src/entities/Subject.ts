@@ -19,11 +19,11 @@ export class Subject {
   @JoinTable({
     name: "room_subjet",
     joinColumn: {
-      name: "room_id",
+      name: "subject_id",
       referencedColumnName: "id",
     },
     inverseJoinColumn: {
-      name: "subject_id",
+      name: "room_id",
       referencedColumnName: "id",
     },
   })

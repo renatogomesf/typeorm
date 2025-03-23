@@ -22,6 +22,6 @@ export class Room {
   @OneToMany(() => Video, (video) => video.room) // coluna com relação um para muitos
   videos: Video[];
 
-  @ManyToMany(() => Subject, (subject) => subject.rooms)
+  @ManyToMany(() => Subject, (subject) => subject.rooms) // coluna com relação muitos para muitos
   subjects: Subject[];
 }
