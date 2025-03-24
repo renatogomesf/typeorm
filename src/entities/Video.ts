@@ -19,6 +19,6 @@ export class Video {
   url: string;
 
   @ManyToOne(() => Room, (room) => room.videos) // coluna com relação muitos para um
-  @JoinColumn({ name: "room_id" })
+  @JoinColumn({ name: "room_id" }) // tabela que possui a chave estrangeira
   room: Room;
 }

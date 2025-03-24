@@ -1,7 +1,6 @@
 import {
   Column,
   Entity,
-  JoinTable,
   ManyToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
@@ -16,16 +15,5 @@ export class Subject {
   name: string;
 
   @ManyToMany(() => Room, (room) => room.subjects)
-  @JoinTable({
-    name: "room_subjet",
-    joinColumn: {
-      name: "subject_id",
-      referencedColumnName: "id",
-    },
-    inverseJoinColumn: {
-      name: "room_id",
-      referencedColumnName: "id",
-    },
-  })
   rooms: Room[];
 }

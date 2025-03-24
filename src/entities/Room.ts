@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinTable,
   ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -23,5 +24,16 @@ export class Room {
   videos: Video[];
 
   @ManyToMany(() => Subject, (subject) => subject.rooms) // coluna com relação muitos para muitos
+  @JoinTable({
+    name: "room_subjet",
+    joinColumn: {
+      name: "room_id",
+      referencedColumnName: "id",
+    },
+    inverseJoinColumn: {
+      name: "subject_id",
+      referencedColumnName: "id",
+    },
+  })
   subjects: Subject[];
 }
